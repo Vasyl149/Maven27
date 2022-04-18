@@ -45,12 +45,10 @@
 <!--                            <value>${project.build.directory}/allure-results</value>-->
 <!--                        </property>-->
 <!--                    </systemProperties>-->
-<!--                    <systemPropertyVariables>-->
-<!--                        &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;-->
-<!--                        <environment>${env}</environment>-->
 
-<!--                    </systemPropertyVariables>-->
                     <systemPropertyVariables>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <environment>${env}</environment>
                         <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
                     </systemPropertyVariables>
                     <properties>
@@ -66,7 +64,7 @@
                     <reportsDirectory>test-output</reportsDirectory>
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty -->
-                        <suiteXmlFile>src/test/resources/suites/test.xml</suiteXmlFile>
+                        <suiteXmlFile>${suite}</suiteXmlFile>
                     </suiteXmlFiles>
 
                 </configuration>
