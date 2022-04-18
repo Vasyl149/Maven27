@@ -1,0 +1,3 @@
+Check if menu list contains 8 items
+Check if menu consist of  'Inbox', 'Drafts', 'Sent', 'Spam' etc.
+Check if icons are displayed on left menu
