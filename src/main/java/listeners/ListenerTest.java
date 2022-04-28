@@ -1,12 +1,13 @@
 package listeners;
 
-import com.google.common.collect.ImmutableMap;
+import driver.DriverManager;
+import io.qameta.allure.Attachment;
 import logging.Log;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import javax.annotation.concurrent.Immutable;
 
 //import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
@@ -42,6 +43,7 @@ public class ListenerTest implements ITestListener {
     public void onTestFailure(ITestResult Result)
     {
         System.out.println("The name of the testcase failed is :"+Result.getName());
+        screenshot();
         Log.log("Result","TEST FAILED") ;
     }
 
@@ -68,6 +70,11 @@ public class ListenerTest implements ITestListener {
     public void onTestSuccess(ITestResult Result)
     {
         System.out.println("The name of the testcase passed is :"+Result.getName());
+
         Log.log("Result","TEST PASSED") ;
+    }
+    @Attachment(value = "Screenshot", type = "image/png")
+    public byte[] screenshot() {
+        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }

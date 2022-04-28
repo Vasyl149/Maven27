@@ -1,10 +1,8 @@
 package page.common;
 
 import io.qameta.allure.Step;
-import logging.Log;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import page.AbstractPageObject;
 
 import java.util.List;
@@ -38,7 +36,7 @@ public class MainMenuList extends AbstractPageObject {
     @FindBy(css = "a[id='10002']>span.sidebar__list-link-count")
     private WebElement countOfDrafts;
 
-    @Step
+    @Step("Click on 'Compose' button")
     public void composeButton() {
         composeButton.click();
     }
@@ -68,17 +66,17 @@ public class MainMenuList extends AbstractPageObject {
         return counter.getText();
     }
 
-    @Step
+    @Step("Click on 'Drafts' button ")
     public void draftsButton() {
         draftsButton.click();
     }
 
-    @Step
+    @Step("Click on 'Sent' button")
     public void sentItemsButton() {
         sentItemsButton.click();
     }
 
-    @Step
+    @Step("Click on 'Unread' button")
     public void unreadButton() {
         unreadButton.click();
     }

@@ -1,9 +1,7 @@
 import driver.BrowserInstance;
 import driver.DriverManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import page_bo.main_pages.loginPageBO.LoginPageBO;
 
 import static config.ConfigManager.conf;
@@ -15,7 +13,7 @@ public abstract class BaseTest {
     //Uncomment for jenkins ↓
     private final String browser = System.getProperty("environment");
 
-    @BeforeMethod
+    @BeforeClass
     //@Parameters("browser")
     public void preCondition() {
         WebDriver driver = new BrowserInstance().createInstance(browser);
@@ -30,7 +28,7 @@ public abstract class BaseTest {
         new LoginPageBO().logIn();
     }
 
-    @AfterMethod
+    @AfterClass
     public void postCondition() {
         DriverManager.quit();
     }
